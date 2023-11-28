@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteTodo } from "../modules/todos";
+import { deleteTodo, switchTodo } from "../modules/todos";
 
 function TodoList({ isActive }) {
   const todos = useSelector((state) => state.todos);
@@ -11,8 +11,8 @@ function TodoList({ isActive }) {
     dispatch(deleteTodo(id));
   };
 
-  const handelSwitchBtn = () => {
-    dispatch(SwitchTodo());
+  const handelSwitchBtn = (id) => {
+    dispatch(switchTodo(id));
   };
 
   return (
@@ -28,7 +28,7 @@ function TodoList({ isActive }) {
                 <p>{item.contents}</p>
                 <button
                   onClick={() => {
-                    handelSwitchBtn();
+                    handelSwitchBtn(item.id);
                   }}
                 >
                   {item.isDone ? "취소" : "완료"}

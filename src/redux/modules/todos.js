@@ -1,4 +1,3 @@
-const id = Date.now();
 const DELETE_TODO = "todos/DELETE_TODO";
 const ADD_TODO = "todos/ADD_TODO";
 const SWITCH_TODO = "todos/SWITCH_TODO";
@@ -26,13 +25,13 @@ export const switchTodo = (payload) => {
 
 const initialState = [
   {
-    id,
+    id: 1,
     title: "제목1",
     contents: "내용1",
     isDone: false,
   },
   {
-    id,
+    id: 2,
     title: "제목2",
     contents: "내용2",
     isDone: true,
@@ -49,7 +48,7 @@ const todos = (state = initialState, action) => {
       return state.filter((item) => item.id !== action.payload);
 
     case SWITCH_TODO:
-      state.map((item) => {
+      return state.map((item) => {
         if (item.id === action.payload) {
           return { ...item, isDone: !item.isDone };
         } else {
