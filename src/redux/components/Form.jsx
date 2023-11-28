@@ -36,7 +36,7 @@ function Form() {
           setContents(e.target.value);
         }}
       />
-      <button>추가</button>
+      <button type="submit">추가</button>
     </form>
   );
 }

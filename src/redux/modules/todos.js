@@ -42,13 +42,13 @@ const initialState = [
 // 리듀서
 const todos = (state = initialState, action) => {
   switch (action.type) {
-    case "ADD_TODO":
+    case ADD_TODO:
       return [...state, action.payload];
 
-    case "DELETE_TODO":
+    case DELETE_TODO:
       return state.filter((item) => item.id !== action.payload);
 
-    case "SWITCH_TODO":
+    case SWITCH_TODO:
       state.map((item) => {
         if (item.id === action.payload) {
           return { ...item, isDone: !item.isDone };
